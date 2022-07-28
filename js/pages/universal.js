@@ -18,7 +18,7 @@ function getCookieByName(name) {
     if (value) {
         value = decodeURIComponent(value);
     }
-
+    
     return value;
 }
 
