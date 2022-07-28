@@ -10,7 +10,7 @@ let app = Vue.createApp({
     },
     methods: {
         loginHandlr(){
-            axios.post(`${ip}/login`,{"email": this.username,"password": this.password})
+            axios.post(`${ip}/login`,{"username": this.username,"password": this.password})
             .then(res => {
                 document.cookie = "Token=" + res.data.token;
                 document.cookie = "user=" + res.data.data[0].user;
