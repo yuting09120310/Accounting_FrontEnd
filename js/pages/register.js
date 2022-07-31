@@ -21,7 +21,7 @@ let app = Vue.createApp({
         let bank_list = [];
 
         let userName = "";
-        let password = "";
+        let passWord = "";
         let account_one = "";
         let money_one = "";
 
@@ -36,7 +36,7 @@ let app = Vue.createApp({
             pnl_bank,
             bank_list : data,
             userName,
-            password,
+            passWord,
             account_one,
             money_one,
             account_two,
@@ -47,7 +47,7 @@ let app = Vue.createApp({
     },
     methods: {
         checkAccount(){
-            axios.post(`${ip}/checkUser`,{"userName" : this.userName , "password" : this.password})
+            axios.post(`${ip}/checkUser`,{"userName" : this.userName , "password" : this.passWord})
             .then(res => {
                 if(res.data.message == "OK"){
                     this.pnl_account = false;
@@ -67,12 +67,13 @@ let app = Vue.createApp({
                 return;
             }
 
-            axios.post(`${ip}/addUser`,{"userName" : this.userName , "password" : this.password 
+            axios.post(`${ip}/addUser`,{"userName" : this.userName , "password" : this.passWord 
             , "account_one":this.account_one , "money_one" : this.money_one
             , "account_two":this.account_two , "money_two" : this.money_two
             , "account_three":this.account_three , "money_three" : this.money_three})
             .then(res => {
-                console.log(res);
+                alert(res.data.data);
+                document.location.href = './login.html'
             })
             .catch(err => {
                 console.error(err); 
