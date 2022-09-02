@@ -22,5 +22,5 @@ function getCookieByName(name) {
     return value;
 }
 
-var ip = "https://alexaccconunting.herokuapp.com";
+var ip = "http://58.114.13.199:3000";
 // var ip = "http://127.0.0.1:3000";
